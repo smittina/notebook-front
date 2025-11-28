@@ -10,7 +10,10 @@ export const notebookApi = createApi({
         getAllBooks: builder.query({
             query: () => `readings`
         }),
+        getYearDetails: builder.query({
+            query: (year) => `readings/${year}`
+        })
     }),
 })
 
-export const { useGetAllBooksQuery } = notebookApi;
+export const { useGetAllBooksQuery, useLazyGetYearDetailsQuery } = notebookApi;

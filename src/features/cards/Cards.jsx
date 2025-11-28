@@ -1,5 +1,5 @@
 import { useGetAllBooksQuery } from "../../services/NotebookApi.jsx";
-import {CardYear} from "../../common/component/CardYear.jsx";
+import {CardYear} from "./CardYear.jsx";
 
 
 export const Cards = () => {
@@ -8,8 +8,8 @@ export const Cards = () => {
 
     return !isLoading && <div className="Cards">
         {
-            listOfBooks?.map((book) =>
-                <CardYear year={book.year} numberOfBooks={book.numberOfReadings} />
+            listOfBooks?.map((book, index) =>
+                <CardYear id={index} year={book.year} numberOfBooks={book.numberOfReadings} />
             )
         }
     </div>
