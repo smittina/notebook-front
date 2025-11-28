@@ -12,8 +12,11 @@ export const notebookApi = createApi({
         }),
         getYearDetails: builder.query({
             query: (year) => `readings/${year}`
+        }),
+        getReadingDetails: builder.query({
+            query: (id) => `readings/reading-detail/${id}`
         })
     }),
 })
 
-export const { useGetAllBooksQuery, useLazyGetYearDetailsQuery } = notebookApi;
+export const { useGetAllBooksQuery, useLazyGetYearDetailsQuery, useGetReadingDetailsQuery } = notebookApi;

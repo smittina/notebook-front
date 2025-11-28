@@ -97,11 +97,18 @@ nav ul li a:hover {
     margin-left: 20px;
 }
 
-ol.test{
+ol.list-o-readings{
     margin-left: 20px;
-    background: rgb(140, 104, 98);
+    background-color: rgb(176, 139, 116);
     list-style-position: outside;
 }
+
+ol.list-o-readings a {
+    color: rgb(128, 76, 44);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 
 /* CSS DE BASE DANS LE TEMPLATE REACT ---- à supprimer après inspiration */
 
