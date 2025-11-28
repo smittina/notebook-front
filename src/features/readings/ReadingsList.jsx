@@ -9,7 +9,7 @@ export const ReadingsList = () => {
         <ol className="test">
             {
                 readings?.map((reading, index) =>
-                    <li id={index}>{reading.bookTitle} de {reading.bookAuthor} --- {reading.rating}⭐</li>
+                    <li key={index} >{reading.bookTitle} de {reading.bookAuthor} --- {reading.rating}⭐</li>
                 )
             }
         </ol>

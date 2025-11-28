@@ -9,7 +9,7 @@ export const Cards = () => {
     return !isLoading && <div className="Cards">
         {
             listOfBooks?.map((book, index) =>
-                <CardYear id={index} year={book.year} numberOfBooks={book.numberOfReadings} />
+                <CardYear key={index} id={index} year={book.year} numberOfBooks={book.numberOfReadings} />
             )
         }
     </div>

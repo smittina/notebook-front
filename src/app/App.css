@@ -1,7 +1,6 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: auto;
   text-align: center;
 }
 
@@ -12,17 +11,55 @@ body {
     background: rgb(227, 181, 172);
 }
 
-h1 {
-    border-block: double;
+/* HEADER */
+
+header {
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
 }
 
-.App {
+.title-header {
+    border-block: double;
     text-align: center;
-    margin-left: 20px;
 }
+
+/* NAVIGATION */
+
+nav {
+    display:flex;
+    justify-content: center;
+    background-color: rgb(176, 139, 116);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: rgb(18, 3, 1);;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: rgb(18, 3, 1);
+    background-color: rgb(242, 208, 187);
+}
+
+/* CARDS */
 
 .Cards {
-    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
