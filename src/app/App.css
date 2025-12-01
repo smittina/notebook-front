@@ -92,6 +92,8 @@ nav ul li a:hover {
     padding-bottom: 20px;
 }
 
+/* READINGS LIST */
+
 .ReadingsList {
     width: 450px;
     margin-left: 20px;
@@ -107,6 +109,43 @@ ol.list-o-readings a {
     color: rgb(128, 76, 44);
     font-weight: bold;
     text-decoration: underline;
+}
+
+/* READING DETAILS */
+
+.ReadingDetails{
+    position:absolute;
+    top:200px;
+    right:25px;
+    left:25px;
+}
+
+.details-wrapper{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 5fr);
+    grid-gap: 80px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.details-wrapper h2 {
+    text-decoration: underline;
+}
+
+.details-wrapper p {
+    text-align: justify;
+}
+
+.details-infos table {
+    display: flex;
+    justify-content: center;
+    width:100%;
+    border-collapse: collapse;
+}
+
+.details-infos th,td {
+    border: 1px solid;
+    padding: 10px;
 }
 
 
