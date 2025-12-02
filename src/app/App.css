@@ -1,5 +1,4 @@
 #root {
-  max-width: 1280px;
   margin: auto;
   text-align: center;
 }
@@ -148,41 +147,33 @@ ol.list-o-readings a {
     padding: 10px;
 }
 
+/* NEW READING */
 
-/* CSS DE BASE DANS LE TEMPLATE REACT ---- à supprimer après inspiration */
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.NewReading {
+    position:absolute;
+    top:200px;
+    right:25px;
+    left:25px;
+    background: rgb(227, 181, 172);
+    border:none;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-reading {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+fieldset {
+    width:500px;
 }
 
-.card {
-  padding: 2em;
+.visibleField {
+    display:block;
 }
 
-.read-the-docs {
-  color: #888;
+.unVisibleField {
+    display:none;
 }
