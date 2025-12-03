@@ -1,10 +1,12 @@
-import {useState} from "react";
+import {createRef, useState} from "react";
 
 export const Reading = ({formInformation}) => {
 
     const [saga, setSaga] = useState(false);
     const [status, setStatus] = useState("inProgress");
+    const [quotations, setQuotations] = useState([]);
 
+    const quote = createRef();
 
 
     const getGenresOptions = () => {
@@ -40,6 +42,11 @@ export const Reading = ({formInformation}) => {
                 break;
             default: console.log("Error with onChangeStatus, value not recognized : "+event.target.value)
         }
+    }
+
+    const addQuotation = () => {
+        let quoteVal = quote.current.value;
+        setQuotations([...quotations, quoteVal])
     }
 
     const displayFieldSetFromStatus = () => {
@@ -155,7 +162,7 @@ export const Reading = ({formInformation}) => {
             <fieldset>
                 <legend>Dates</legend>
                 <p>
-                    <label htmlFor="stating">Date de Début de lecture</label>
+                    <label htmlFor="stating">Date de Début de lecture : </label>
                     <input
                         type="date"
                         id="starting"
@@ -164,7 +171,7 @@ export const Reading = ({formInformation}) => {
                     />
                 </p>
                 <p>
-                    <label htmlFor="finished">Date de Fin de lecture</label>
+                    <label htmlFor="finished">Date de Fin de lecture : </label>
                     <input
                         type="date"
                         id="finished"
@@ -180,6 +187,16 @@ export const Reading = ({formInformation}) => {
                 </select>
             </fieldset>
             { displayFieldSetFromStatus() }
+            <fieldset>
+                <legend>Citations :</legend>
+                <div>
+                    <textarea
+                        ref={quote}
+                        name="quotations"
+                    />
+                    <p><button onClick={addQuotation}>Ajouter une citation préférée</button></p>
+                </div>
+            </fieldset>
             <button type="submit">Ajouter</button>
         </form>
     </>
