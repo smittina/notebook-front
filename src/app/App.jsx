@@ -6,7 +6,7 @@ function App() {
 
   return (
       <div>
-              <Cards />
+          <Cards />
           <ReadingsList />
       </div>
   )

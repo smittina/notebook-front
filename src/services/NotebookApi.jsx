@@ -26,6 +26,16 @@ export const notebookApi = createApi({
                 body: body,
             })
         }),
+        getReadingConfig: builder.query({
+            query: () => `config`
+        }),
+        updateReadingConfig: builder.query({
+            query: (body) => ({
+                url: `config/update`,
+                method: 'POST',
+                body: body,
+            })
+        })
     }),
 })
 
@@ -34,4 +44,7 @@ export const {
     useLazyGetYearDetailsQuery,
     useGetReadingDetailsQuery,
     useGetFormInformationQuery,
-    useLazyCreateNewReadingQuery } = notebookApi;
+    useLazyCreateNewReadingQuery,
+    useLazyGetReadingConfigQuery,
+    useLazyUpdateReadingConfigQuery,
+} = notebookApi;

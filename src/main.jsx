@@ -10,6 +10,7 @@ import {Header} from "./common/component/Header.jsx";
 import {Provider} from "react-redux";
 import {store} from "./app/store.js";
 import {Error} from "./common/component/Error.jsx";
+import {ReadingConfig} from "./features/configuration/ReadingConfig.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')).render(
                   <Route path="/" element={<App />}/>
                   <Route path="/reading/:id" element={<ReadingDetail />} />
                   <Route path="/new" element={<NewReading />} />
+                  <Route path="/config" element={<ReadingConfig />} />
                   <Route path="*" element={<Error />} />
               </Routes>
           </Router>
