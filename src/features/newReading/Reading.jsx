@@ -1,4 +1,6 @@
 import {createRef, useState} from "react";
+import {useLazyCreateNewReadingQuery} from "../../services/NotebookApi.jsx";
+import {createBody} from "../../utils/Utils.jsx";
 
 export const Reading = ({formInformation}) => {
 
@@ -7,6 +9,8 @@ export const Reading = ({formInformation}) => {
     const [quotations, setQuotations] = useState([]);
 
     const quote = createRef();
+
+    const [createNewReading, {isLoading}] = useLazyCreateNewReadingQuery();
 
 
     const getGenresOptions = () => {
@@ -77,21 +81,9 @@ export const Reading = ({formInformation}) => {
     }
 
     const addNewReading = (formData) => {
-        const title = formData.get("title");
-        console.log("Le titre du livre est :"+title);
-        const authorName = formData.get("authorName")
-        console.log("Le nom de l'auteur est :"+authorName);
-        const synopsis = formData.get("synopsis");
-        console.log("Synopsis :"+synopsis);
-        const genres = formData.getAll("genres");
-        console.log("Genres : "+genres);
-        const tropes = formData.getAll("tropes");
-        console.log("Tropes : "+tropes);
-        const pageNumber = formData.get("pageNumber");
-        console.log("Page Number : "+pageNumber);
-
-        // TODO - POST CALL TO READINGS/CREATE FROM NOTEBOOK API
-
+        const body = createBody(formData, quotations)
+        createNewReading(body);
+        setQuotations([]);
     }
 
     return <>
@@ -194,7 +186,7 @@ export const Reading = ({formInformation}) => {
                         ref={quote}
                         name="quotations"
                     />
-                    <p><button onClick={addQuotation}>Ajouter une citation préférée</button></p>
+                    <p><button type="button" onClick={addQuotation}>Ajouter une citation préférée</button></p>
                 </div>
             </fieldset>
             <button type="submit">Ajouter</button>

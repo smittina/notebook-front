@@ -19,7 +19,19 @@ export const notebookApi = createApi({
         getFormInformation: builder.query({
             query: () => `readings/form-information`
         }),
+        createNewReading: builder.query({
+            query: (body) => ({
+                url: `readings/create`,
+                method: 'POST',
+                body: body,
+            })
+        }),
     }),
 })
 
-export const { useGetAllBooksQuery, useLazyGetYearDetailsQuery, useGetReadingDetailsQuery, useGetFormInformationQuery } = notebookApi;
+export const {
+    useGetAllBooksQuery,
+    useLazyGetYearDetailsQuery,
+    useGetReadingDetailsQuery,
+    useGetFormInformationQuery,
+    useLazyCreateNewReadingQuery } = notebookApi;
