@@ -1,7 +1,6 @@
 import {useState} from "react";
-import {ReReading} from "./ReReading.jsx";
-import {Reading} from "./Reading.jsx";
 import {useGetFormInformationQuery} from "../../services/NotebookApi.jsx";
+import {NewReadingForm} from "./NewReadingForm.jsx";
 
 export const NewReading = () => {
 
@@ -21,14 +20,10 @@ export const NewReading = () => {
         }
     }
 
-    const getFormComponent = () => {
-        if (checked) {
-            return reReading ?
-                <ReReading formInformation={formInformation}/>
-                :
-                <Reading formInformation={formInformation}/>
+    const displayForm = () => {
+        if(checked) {
+            return <NewReadingForm formInformation={formInformation} reReading={reReading} />
         }
-
     }
 
     return !isLoading && <div className="NewReading">
@@ -45,7 +40,7 @@ export const NewReading = () => {
                     <label htmlFor="not-re-reading">Non</label>
                 </div>
             </fieldset>
-            { getFormComponent() }
+            {displayForm()}
         </div>
     </div>
 }
